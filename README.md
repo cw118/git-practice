@@ -13,3 +13,7 @@ Starting by familiarizing myself with basic Git commands and following some tuto
   - First `-m`: sets commit message (required)
   - Second `-m`: sets commit description (optional)
 - `git push`: push commit changes live to remote repository (where your project is hosted)
+  - `git push origin <branch-name>`: push commit changes to a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration)
+- `git remote`: depending on the arguments that follow, provides or modifies information on the remote repository
+  - Argument `-v`: see your remote origin
+  - Argument `set-url origin`: change the url of an existing origin
