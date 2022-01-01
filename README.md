@@ -46,11 +46,13 @@ Starting by familiarizing myself with basic Git commands and following some tuto
   - Argument `<filename>`: add/save changes for the file specified (replace `<filename>` with the actual name of the file to be tracked)
   - Argument `.`: add/save changes for all files in the directory
 - `git commit`: commit (save) changes. See arguments below.
-  - First `-m`: sets commit message (required)
-  - Second `-m`: sets commit description (optional)
-- `git push`: push commit changes live to remote repository (where your project is hosted)
+  - ***First*** `-m "<message-here>"`: sets commit message **(required)**
+  - ***Second*** `-m <description-here>`: sets commit description (optional)
+- `git push`: push commit changes live to remote repository (where your project is hosted). See possible arguments below.
   - `git push origin <branch-name>`: push commit changes to a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration)
-  - Arguments `-u origin <branch-name>`: set an origin branch as **u**pstream *(simplifies pushing to the remote repo as `git push -u` without the `origin` and `<branch-name>` arguments)*
+  - `-u origin <branch-name>`: set an origin branch as **u**pstream *(simplifies pushing to the remote repo as `git push -u` without the `origin` and `<branch-name>` arguments)*
+    - ***Note:*** `-u` is a shorthand for `--set-upstream`.
+  - `--set-upstream origin <branch-name>`: push the current branch and set its upstream branch with a name of `<branch-name>` *(the name used for the upstream branch usually matches the name of the current local branch)*. Often used when a locally created branch does not yet have an upstream branch on the remote repository.
 - `git remote`: depending on the arguments that follow, provides or modifies information on the remote repository
   - Argument `-v`: see your remote origin
   - Arguments `set-url origin <url>`: change the url of an existing origin
@@ -58,7 +60,7 @@ Starting by familiarizing myself with basic Git commands and following some tuto
 
 ### Branching with Git
 
-Git branching involves the creation of branches used for development in addition to the main/default *(typically called `main` or `master`)* branch used for production. The term "branch" refers to the resemblance of a Git workflow to tree branches as shown in the diagram *(courtesy of [Atlassian's tutorial on Git branching](https://www.atlassian.com/git/tutorials/using-branches))* below:
+**Git branching** involves the creation of **branches** used for *development* in addition to the main/default *(typically called `main` or `master`)* branch used for *production*. The term "branch" refers to the resemblance of a Git workflow to tree branches as shown in the diagram *(courtesy of [Atlassian's tutorial on Git branching](https://www.atlassian.com/git/tutorials/using-branches))* below:
 
 ![Diagram of branches in Git](git-branching.png)
 
@@ -66,4 +68,19 @@ When a branch is first created, its code and content is identical to those of th
 
 Each branch only keeps track of the changes are made on its own copy of files, and has no way of "knowing" what changes were made to other branches — to continue with the `feature` and `main` example, if you pushed changes to the `feature` branch, then switched back to the `main` branch, you wouldn't see any of those modifications reflected in `main`. 
 
-This is extremely useful whether you're working independently or collaborating with a group of people, because Git branches allow you to create and test new features for your project that may break your code *(you wouldn't want to save them to the production branch before fixing all bugs and issues)*. In addition, branches also allow you to work on code in a sort of "sandbox area", without having to push anything to production until you've finished developing code that functions properly (and that you're satisfied with). Branches can then be **merged**: if a feature has been successfully developed on the `feature` branch, merging it into `main` will then modify the files in main to reflect changes made in `feature`.
+This is extremely useful whether you're working independently or collaborating with a group of people, because Git branches allow you to create and test new features for your project that may break your code *(you wouldn't want to save them to the production branch before fixing all bugs and issues)*. In addition, branches also allow you to work on code in a sort of "sandbox area", without having to push anything to production until you've finished developing code that functions properly (and that you're satisfied with). 
+
+Branches can then be **merged**: if a feature has been successfully developed on the `feature` branch, merging it into `main` will then modify the files in main to reflect changes made in `feature`.
+
+#### Branching commands
+
+- `git branch`: see all branches of the repository you're in
+  - The branch that is highlighted *(in a different color)* and that has an asterisk (`*`) preceding its name is the branch you're currently on (e.g. `* main` means you're currently on the main branch)
+- `git checkout`: manipulate branches of the repository you're in. See some possible arguments below:
+  - `-b <branch-name>`: create a new branch named (whatever you type as) `<branch-name>`
+  - `<branch-name>`: switch to the branch named `<branch-name>`
+    - If you press the `tab` key, Git will also suggest/autocomplete the name of an existing branch based on what you've typed so far. For example, if there's a `main` and a `feature-readme-update` branch, you could type `git checkout ` then start typing "feature", then press `tab` for Git to autocomplete.
+- `git diff`: shows the changes that have been made by comparing two versions of your code *(shows the **diff**erence between the lines of your files)*
+  - Argument `<branch-name>`: shows the diff between the current branch and `<branch-name>`
+- `git merge`: merge branches (update one branch with changes made in another)
+  - Argument `<branch-name>`: merges `<branch-name>` into the current branch
