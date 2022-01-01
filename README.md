@@ -9,6 +9,7 @@ A repo I'm using to train my Git, GitHub, and command line skills, as well as to
 - [Basic commands](#basic-commands)
   - [Key/general commands](#keygeneral-commands)
 - [Branching with Git](#branching-with-git)
+  - [Pull requests and forking](#pull-requests-and-forking)
   - [Branching commands](#branching-commands)
   - [Merge conflicts](#merge-conflicts)
 - [Undoing in Git](#undoing-in-git)
@@ -67,7 +68,7 @@ Starting by familiarizing myself with basic Git commands and following some tuto
   - Argument `--reverse`: show a log of commits in chronological order (starts with the first commit). *Reverses the default order.*
 - `git push`: push commit changes live to remote repository (where your project is hosted). See possible arguments below.
   - `origin <branch-name>`: push commit changes to a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration)
-  - `-u origin <branch-name>`: set an origin branch as **u**pstream *(simplifies pushing to the remote repo as `git push -u` without the `origin` and `<branch-name>` arguments)*
+  - `-u origin <branch-name>`: set an origin branch as **u**pstream *(simplifies pushing to the remote repo as `git push -u` without the `origin` and `<branch-name>` arguments, or even just `git push`)*
     - ***Note:*** `-u` is a shorthand for `--set-upstream`.
   - `-u`: push commit changes to upstream — only possible once upstream has been set *(see the argument directly above)*
   - `--set-upstream origin <branch-name>`: push the current branch and set its upstream branch with a name of `<branch-name>` *(the name used for the upstream branch usually matches the name of the current local branch)*. Often used when a locally created branch does not yet have an upstream branch on the remote repository.
@@ -89,11 +90,17 @@ When a branch is first created, its code and content is identical to those of th
 
 Each branch only keeps track of the changes are made on its own copy of files, and has no way of "knowing" what changes were made to other branches — to continue with the `feature` and `main` example, if you pushed changes to the `feature` branch, then switched back to the `main` branch, you wouldn't see any of those modifications reflected in `main`. 
 
-This is extremely useful whether you're working independently or collaborating with a group of people, because Git branches allow you to create and test new features for your project that may break your code *(you wouldn't want to save them to the production branch before fixing all bugs and issues)*. In addition, branches also allow you to work on code in a sort of "sandbox area", without having to push anything to production until you've finished developing code that functions properly (and that you're satisfied with). 
+This is extremely useful whether you're working independently or collaborating with a group of people, because Git branches allow you to create and test new features for your project that may break your code *(you wouldn't want to save them to the production branch before fixing all bugs and issues)*. In addition, branches also allow you to work on code in a sort of "sandbox area", without having to push anything to production until you've finished developing code that functions properly (and that you're satisfied with).
+
+### Pull requests and forking
 
 Branches can then be **merged**: if a feature has been successfully developed on the `feature` branch, merging it into `main` will then modify the files in main to reflect changes made in `feature`. Branch merging is often done through a **pull request**, often abbreviated as "PR" — it gets its name from the fact that you're making a request to have your code pulled into the main/master branch.
 
 Pull requests allow collaborators and/or contributors to see and comment on your code, as well as review it and possibly request changes. Generally, after a PR has been approved and merged, you'll delete the source/feature branch and switch back to the main branch. When you want to make additional changes to the repository, you'll create a new branch and once again begin the process of modifying the files locally, then making a pull request when you're ready. The GitHub user interface (UI) is extremely helpful when it comes to making pull requests and will guide you through the process.
+
+Now, what happens when you want to make or propose edits to a repository that you don't own, and that you don't have write access to *(you don't have the permissions to modify its files directly)*? You should notice a button labeled **"Fork"** for repositories on GitHub. **Forking a repository** will create a copy of it in your own GitHub user account, giving you full permissions (complete control) to edit it as you'd like without directly impacting the parent repository *(the original repo that you forked)*.
+
+With a forked repo, you can also create branches, edit files, and pretty much use any of the commands and functionality documented here **(once again, this won't impact the parent repository in any way until you make a PR)**. However, if you're satisfied with some changes that you've made to your forked version of a repository and would like to propose that they be made to the parent repo as well, you'll need to make a pull request at the parent repository. Such a pull request tends to consist of a request to merge your own branch (on your forked version) into the parent repo's `main`/`master` branch. To work on the forked repository on your local computer, you can use `git clone` (see [Git commands](#git)). ***Knowing this is very important if you're interested in open source!***
 
 ### Branching commands
 
@@ -125,9 +132,10 @@ While fixing merge conflicts can be done at the terminal, the easiest way is oft
 Sometimes you'll want to undo in Git, whether it be unstaging changes or undoing a commit. This section covers the commands that'll allow you to undo various actions in Git.
 
 - `git reset`: unstage all changes in all files. May also take arguments (see below).
-  - `<file-name>`: unstage the changes in the file named `<file-name>`
+  - `<file-name>`: unstage the changes in the file named `<file-name>`. *Note that unstaging will **not** remove your changes. Unstaging only means your changes are no longer saved in Git, but they will remain in your files.*
   - `HEAD~<number-here>`: **undo and unstage the changes** of one or several **commits** *(note the usage of `~`)*. Tells Git to point `HEAD` *(refers/points to the current commit you're viewing)* at a commit `<number-here>` commits before. For example, `git reset HEAD~1` tells Git to point at the previous commit, since it's one commit "before" the current one, thus undoing and unstaging the changes you just committed.
   - `<commit-hash>`: unstage any changes made after the commit with the hash `<commit-hash>`
     - **Note:** To Git, each commit is uniquely identifiable by its **commit hash** — these can be seen using `git log` *(see the [Git subsection](#git) in [Key/general commands](#keygeneral-commands))*. A commit hash can look something like this: `cc73163178da991374726d2057f834cfb9730308`.
+  - `--hard`: unstage **and remove** all changes from/up to a certain commit. Additional arguments such as a **commit hash** (see directly above) can be "combined" with this one to specify to which point changes should be unstaged and removed.
 
-<!-- To add in a future Signing Git commits: - `-S`: this flag creates a [signed Git commit](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) *and should add a `Verified` badge to the commit when you view it on GitHub*. -->
+<!-- To add in a future "Signing Git commits" section: - `-S`: this flag creates a [signed Git commit](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) *and should add a `Verified` badge to the commit when you view it on GitHub*. -->
