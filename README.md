@@ -48,9 +48,11 @@ Starting by familiarizing myself with basic Git commands and following some tuto
 - `git commit`: commit (save) changes. See arguments below.
   - ***First*** `-m "<message-here>"`: sets commit message **(required)**
   - ***Second*** `-m <description-here>`: sets commit description (optional)
-- `git push`: push commit changes live to remote repository (where your project is hosted)
+- `git push`: push commit changes live to remote repository (where your project is hosted). See possible arguments below.
   - `git push origin <branch-name>`: push commit changes to a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration)
-  - Arguments `-u origin <branch-name>`: set an origin branch as **u**pstream *(simplifies pushing to the remote repo as `git push -u` without the `origin` and `<branch-name>` arguments)*
+  - `-u origin <branch-name>`: set an origin branch as **u**pstream *(simplifies pushing to the remote repo as `git push -u` without the `origin` and `<branch-name>` arguments)*
+    - ***Note:*** `-u` is a shorthand for `--set-upstream`.
+  - `--set-upstream origin <branch-name>`: push the current branch and set its upstream branch with a name of `<branch-name>` *(the name used for the upstream branch usually matches the name of the current local branch)*. Often used when a locally created branch does not yet have an upstream branch on the remote repository.
 - `git remote`: depending on the arguments that follow, provides or modifies information on the remote repository
   - Argument `-v`: see your remote origin
   - Arguments `set-url origin <url>`: change the url of an existing origin
@@ -78,3 +80,7 @@ Branches can then be **merged**: if a feature has been successfully developed on
   - `-b <branch-name>`: create a new branch named (whatever you type as) `<branch-name>`
   - `<branch-name>`: switch to the branch named `<branch-name>`
     - If you press the `tab` key, Git will also suggest/autocomplete the name of an existing branch based on what you've typed so far. For example, if there's a `main` and a `feature-readme-update` branch, you could type `git checkout ` then start typing "feature", then press `tab` for Git to autocomplete.
+- `git diff`: shows the changes that have been made by comparing two versions of your code *(shows the **diff**erence between the lines of your files)*
+  - Argument `<branch-name>`: shows the diff between the current branch and `<branch-name>`
+- `git merge`: merge branches (update one branch with changes made in another)
+  - Argument `<branch-name>`: merges `<branch-name>` into the current branch
