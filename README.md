@@ -41,8 +41,19 @@ Starting by familiarizing myself with basic Git commands and following some tuto
 
 ### Key/general commands
 
+#### Terminal/Command line
+
+- `clear`: move your terminal/command line scrollbar so that you see a clear screen *("removes clutter")*
+- `q`: "escape" (often used after commands like `git diff`, `git log`, etc.)
+- `ls`: list the files and directories in your current directory. See possible arguments/flags below and a usage example.
+  - The `-l` flag indicates a long listing format
+  - The `-a` flag enables viewing of **all** files, **including hidden ones** (such as the `.git` folder)
+  - For example, the `ls -la` command lists all files and directories, including hidden files (such as the `.git` folder), in a long listing format.
+
+#### Git
+
 - `git init`: initialize a (local) directory as a Git repository
-  - *To undo, you can remove the hidden `.git` folder (verify its presence with the `ls -la` command in your terminal) using `rm -rf .git`.*
+  - To undo, you can remove the hidden `.git` folder *(verify its presence with the `ls -la` command in your terminal)* using `rm -rf .git`.
 - `git clone`: clone a repository
 - `git status`: show changes, as well as tracked and untracked files, in a directory
 - `git add`: tell Git to track certain or all files/changes in order to include them in a commit (using `git add .` will stage all files/changes with Git, or in other words, cause all files to be tracked). **Saves pending changes, or the current project state, into commit history and prepares (stages) for a proper commit.** Typically used before the `commit` command (see below).
@@ -53,7 +64,7 @@ Starting by familiarizing myself with basic Git commands and following some tuto
   - ***Second*** `-m "<description-here>"`: sets commit description (optional). *Note the use of double quotes around the description text!*
   - `-am "<message-here>"`: a "shortcut" command combining `git add` and `git commit -m` into one. ***This only works for modified files*, not newly created ones.** *Note the use of double quotes around the message text!*
 - `git log`: see a log/history of all commits. In reverse chronological order (starts with the most recent commit) by default.
-  Argument `--reverse`: show a log of commits in chronological order (starts with the first commit). *Reverses the default order.*
+  - Argument `--reverse`: show a log of commits in chronological order (starts with the first commit). *Reverses the default order.*
 - `git push`: push commit changes live to remote repository (where your project is hosted). See possible arguments below.
   - `origin <branch-name>`: push commit changes to a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration)
   - `-u origin <branch-name>`: set an origin branch as **u**pstream *(simplifies pushing to the remote repo as `git push -u` without the `origin` and `<branch-name>` arguments)*
