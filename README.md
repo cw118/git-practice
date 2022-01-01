@@ -52,6 +52,8 @@ Starting by familiarizing myself with basic Git commands and following some tuto
   - ***First*** `-m "<message-here>"`: sets commit message **(required**, unless you're using another shorthand argument that has the same purpose such as `-am`). *Note the use of double quotes around the message text!*
   - ***Second*** `-m "<description-here>"`: sets commit description (optional). *Note the use of double quotes around the description text!*
   - `-am "<message-here>"`: a "shortcut" command combining `git add` and `git commit -m` into one. ***This only works for modified files*, not newly created ones.** *Note the use of double quotes around the message text!*
+- `git log`: see a log/history of all commits. In reverse chronological order (starts with the most recent commit) by default.
+  Argument `--reverse`: show a log of commits in chronological order (starts with the first commit). *Reverses the default order.*
 - `git push`: push commit changes live to remote repository (where your project is hosted). See possible arguments below.
   - `origin <branch-name>`: push commit changes to a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration)
   - `-u origin <branch-name>`: set an origin branch as **u**pstream *(simplifies pushing to the remote repo as `git push -u` without the `origin` and `<branch-name>` arguments)*
@@ -113,3 +115,4 @@ Sometimes you'll want to undo in Git, whether it be unstaging changes or undoing
 
 - `git reset`: unstage all changes in all files. May also take arguments (see below).
   - `<file-name>`: unstage the changes in the file named `<file-name>`
+  - `HEAD~<number-here>`: **undo and unstage the changes** of one or several **commits** *(note the usage of `~`)*. Tells Git to point `HEAD` *(refers/points to the current commit you're viewing)* at a commit `<number-here>` commits before. For example, `git reset HEAD~1` tells Git to point at the previous commit, since it's one commit "before" the current one, thus undoing and unstaging the changes you just committed.
