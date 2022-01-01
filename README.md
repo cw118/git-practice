@@ -11,6 +11,7 @@ A repo I'm using to train my Git, GitHub, and command line skills, as well as to
 - [Branching with Git](#branching-with-git)
   - [Branching commands](#branching-commands)
   - [Merge conflicts](#merge-conflicts)
+- [Undoing in Git](#undoing-in-git)
 
 ## Tutorials
 
@@ -44,7 +45,7 @@ Starting by familiarizing myself with basic Git commands and following some tuto
   - *To undo, you can remove the hidden `.git` folder (verify its presence with the `ls -la` command in your terminal) using `rm -rf .git`.*
 - `git clone`: clone a repository
 - `git status`: show changes, as well as tracked and untracked files, in a directory
-- `git add`: tell Git to track certain or all files/changes in order to include them in a commit (using `git add .` will stage all files/changes with Git, or in other words, cause all files to be tracked). **Saves pending changes, or the current project state, into commit history and prepares for a proper commit.** Typically used before the `commit` command (see below).
+- `git add`: tell Git to track certain or all files/changes in order to include them in a commit (using `git add .` will stage all files/changes with Git, or in other words, cause all files to be tracked). **Saves pending changes, or the current project state, into commit history and prepares (stages) for a proper commit.** Typically used before the `commit` command (see below).
   - Argument `<filename>`: add/save changes for the file specified (replace `<filename>` with the actual name of the file to be tracked)
   - Argument `.`: add/save changes for all files in the directory
 - `git commit`: commit (save) changes. See arguments below.
@@ -103,3 +104,5 @@ Merging branches won't always go smoothly, especially when you're working with o
 If Git detects a merge conflict (meaning that the branches you're trying to merge make changes to the same file, and neither branch has been updated to match the other), it'll likely show a message like this: `Automatic merge failed; fix conflicts and then commit the result.` This is because Git doesn't know how to handle it — it's not sure which changes/version you want to keep (or perhaps you want to use both). You can get more information about resolving the conflict with the `git status` command.
 
 While fixing merge conflicts can be done at the terminal, the easiest way is often to fix them directly in your code editor, which offers a visual interface and compares the changes made on your current branch and the incoming change from the branch you're trying to merge into it. Once you've resolved the merge conflict, you can commit — if the fix was successful, Git will also merge the branches automatically.
+
+## Undoing in Git
