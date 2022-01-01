@@ -52,7 +52,9 @@ Starting by familiarizing myself with basic Git commands and following some tuto
   - `origin <branch-name>`: push commit changes to a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration)
   - `-u origin <branch-name>`: set an origin branch as **u**pstream *(simplifies pushing to the remote repo as `git push -u` without the `origin` and `<branch-name>` arguments)*
     - ***Note:*** `-u` is a shorthand for `--set-upstream`.
+  - `-u`: push commit changes to upstream — only possibly once upstream has been set *(see the argument directly above)*
   - `--set-upstream origin <branch-name>`: push the current branch and set its upstream branch with a name of `<branch-name>` *(the name used for the upstream branch usually matches the name of the current local branch)*. Often used when a locally created branch does not yet have an upstream branch on the remote repository.
+  - `origin --delete <branch-name>`: delete a branch on the **remote** (repository). *See [Branching commands](#branching-commands) for more on commands involving Git branches, as well as deleting local branches.)*
 - `git pull`: pulls changes from the remote repository to your local copy. Typing this command without additional arguments will suffice if you have already set upstream *(see `git push` for more details)*. See possible arguments below.
   - `origin <branch-name>`: pull changes from a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration) to your local copy
 - `git remote`: depending on the arguments that follow, provides or modifies information on the remote repository
