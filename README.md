@@ -2,13 +2,13 @@
 
 A repo I'm using to train my Git, GitHub, and command line skills, as well as to save some of my notes on these topics.
 
-### Table of contents:
+### Table of contents
 
 - [Tutorials](#tutorials)
 - [Vocabulary](#vocabulary)
-- [Basic commands](#basic_commands)
-  - [Key/general commands](#key_general_commands)
-  - [Branching with Git](#branching_with_git)
+- [Basic commands](#basic-commands)
+  - [Key/general commands](#keygeneral-commands)
+  - [Branching with Git](#branching-with-git)
 
 ## Tutorials
 
