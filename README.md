@@ -94,3 +94,11 @@ Pull requests allow collaborators and/or contributors to see and comment on your
   - Argument `<branch-name>`: shows the diff between the current branch and `<branch-name>`
 - `git merge`: merge branches (update one branch with changes made in another)
   - Argument `<branch-name>`: merges `<branch-name>` into the current branch
+
+### Merge conflicts
+
+Merging branches won't always go smoothly, especially when you're working with others on a repository, in which case multiple people may be modifying the same files at the same time. This can cause **merge conflicts**.
+
+If Git detects a merge conflict (meaning that the branches you're trying to merge make changes to the same file, and neither branch has been updated to match the other), it'll likely show a message like this: `Automatic merge failed; fix conflicts and then commit the result.` You can get more information about resolving the conflict with the `git status` command.
+
+While fixing merge conflicts can be done at the terminal, the easiest way is often to fix them directly in your code editor, which offers a visual interface and compares the changes made on your current branch and the incoming change from the branch you're trying to merge into it. Once you've resolved the merge conflict, you can commit — if the fix was successful, Git will also merge the branches automatically.
