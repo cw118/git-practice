@@ -44,7 +44,7 @@ Starting by familiarizing myself with basic Git commands and following some tuto
 #### Terminal/Command line
 
 - `clear`: move your terminal/command line scrollbar so that you see a clear screen *("removes clutter")*
-- `q`: "escape" (often used after commands like `git diff`, `git log`, etc.)
+- `q`: quit/"escape" (often used after commands like `git diff`, `git log`, etc.)
 - `ls`: list the files and directories in your current directory. See possible arguments/flags below and a usage example.
   - The `-l` flag indicates a long listing format
   - The `-a` flag enables viewing of **all** files, **including hidden ones** (such as the `.git` folder)
@@ -127,3 +127,7 @@ Sometimes you'll want to undo in Git, whether it be unstaging changes or undoing
 - `git reset`: unstage all changes in all files. May also take arguments (see below).
   - `<file-name>`: unstage the changes in the file named `<file-name>`
   - `HEAD~<number-here>`: **undo and unstage the changes** of one or several **commits** *(note the usage of `~`)*. Tells Git to point `HEAD` *(refers/points to the current commit you're viewing)* at a commit `<number-here>` commits before. For example, `git reset HEAD~1` tells Git to point at the previous commit, since it's one commit "before" the current one, thus undoing and unstaging the changes you just committed.
+  - `<commit-hash>`: unstage any changes made after the commit with the hash `<commit-hash>`
+    - **Note:** To Git, each commit is uniquely identifiable by its **commit hash** — these can be seen using `git log` *(see the [Git subsection](#git) in [Key/general commands](#keygeneral-commands))*. A commit hash can look something like this: `cc73163178da991374726d2057f834cfb9730308`.
+
+<!-- To add in a future Signing Git commits: - `-S`: this flag creates a [signed Git commit](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) *and should add a `Verified` badge to the commit when you view it on GitHub*. -->
