@@ -46,13 +46,15 @@ Starting by familiarizing myself with basic Git commands and following some tuto
   - Argument `<filename>`: add/save changes for the file specified (replace `<filename>` with the actual name of the file to be tracked)
   - Argument `.`: add/save changes for all files in the directory
 - `git commit`: commit (save) changes. See arguments below.
-  - ***First*** `-m "<message-here>"`: sets commit message **(required)**
-  - ***Second*** `-m <description-here>`: sets commit description (optional)
+  - ***First*** `-m "<message-here>"`: sets commit message **(required)**. *Note the use of double quotes around the message text!*
+  - ***Second*** `-m "<description-here>"`: sets commit description (optional). *Note the use of double quotes around the description text!*
 - `git push`: push commit changes live to remote repository (where your project is hosted). See possible arguments below.
-  - `git push origin <branch-name>`: push commit changes to a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration)
+  - `origin <branch-name>`: push commit changes to a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration)
   - `-u origin <branch-name>`: set an origin branch as **u**pstream *(simplifies pushing to the remote repo as `git push -u` without the `origin` and `<branch-name>` arguments)*
     - ***Note:*** `-u` is a shorthand for `--set-upstream`.
   - `--set-upstream origin <branch-name>`: push the current branch and set its upstream branch with a name of `<branch-name>` *(the name used for the upstream branch usually matches the name of the current local branch)*. Often used when a locally created branch does not yet have an upstream branch on the remote repository.
+- `git pull`: pulls changes from the remote repository to your local copy. Typing this command without additional arguments will suffice if you have already set upstream *(see `git push` for more details)*. See possible arguments below.
+  - `origin <branch-name>`: pull changes from a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration) to your local copy
 - `git remote`: depending on the arguments that follow, provides or modifies information on the remote repository
   - Argument `-v`: see your remote origin
   - Arguments `set-url origin <url>`: change the url of an existing origin
@@ -70,12 +72,16 @@ Each branch only keeps track of the changes are made on its own copy of files, a
 
 This is extremely useful whether you're working independently or collaborating with a group of people, because Git branches allow you to create and test new features for your project that may break your code *(you wouldn't want to save them to the production branch before fixing all bugs and issues)*. In addition, branches also allow you to work on code in a sort of "sandbox area", without having to push anything to production until you've finished developing code that functions properly (and that you're satisfied with). 
 
-Branches can then be **merged**: if a feature has been successfully developed on the `feature` branch, merging it into `main` will then modify the files in main to reflect changes made in `feature`.
+Branches can then be **merged**: if a feature has been successfully developed on the `feature` branch, merging it into `main` will then modify the files in main to reflect changes made in `feature`. Branch merging is often done through a **pull request**, often abbreviated as "PR" — it gets its name from the fact that you're making a request to have your code pulled into the main/master branch.
+
+Pull requests allow collaborators and/or contributors to see and comment on your code, as well as review it and possibly request changes. Generally, after a PR has been approved and merged, you'll delete the source/feature branch and switch back to the main branch. When you want to make additional changes to the repository, you'll create a new branch and once again begin the process of modifying the files locally, then making a pull request when you're ready. The GitHub user interface (UI) is extremely helpful when it comes to making pull requests and will guide you through the process.
 
 #### Branching commands
 
-- `git branch`: see all branches of the repository you're in
+- `git branch`: see all branches of the repository you're in. See below for more information and possible arguments.
   - The branch that is highlighted *(in a different color)* and that has an asterisk (`*`) preceding its name is the branch you're currently on (e.g. `* main` means you're currently on the main branch)
+  - Argument `-d <branch-name>`: delete the branch `<branch-name>`
+    - *In general, once a branch has been merged into `main`/`master`, it won't be used again and is deleted.*
 - `git checkout`: manipulate branches of the repository you're in. See some possible arguments below:
   - `-b <branch-name>`: create a new branch named (whatever you type as) `<branch-name>`
   - `<branch-name>`: switch to the branch named `<branch-name>`
