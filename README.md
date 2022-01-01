@@ -103,6 +103,13 @@ Merging branches won't always go smoothly, especially when you're working with o
 
 If Git detects a merge conflict (meaning that the branches you're trying to merge make changes to the same file, and neither branch has been updated to match the other), it'll likely show a message like this: `Automatic merge failed; fix conflicts and then commit the result.` This is because Git doesn't know how to handle it — it's not sure which changes/version you want to keep (or perhaps you want to use both). You can get more information about resolving the conflict with the `git status` command.
 
+Merge conflicts sometimes occur when you're merging locally with `git merge`, which is typically done when you're merging the `main`/`master` branch into your current one to stay up-to-date — `main`/`master` will probably be modified quite often when, for instance, you're working with a team, so you'll want to pull all of those changes to your local copy to get the "latest version". These conflicts can, however, also occur when attempts at merging are made through pull requests.
+
 While fixing merge conflicts can be done at the terminal, the easiest way is often to fix them directly in your code editor, which offers a visual interface and compares the changes made on your current branch and the incoming change from the branch you're trying to merge into it. Once you've resolved the merge conflict, you can commit — if the fix was successful, Git will also merge the branches automatically.
 
 ## Undoing in Git
+
+Sometimes you'll want to undo in Git, whether it be unstaging changes or undoing a commit. This section covers the commands that'll allow you to undo various actions in Git.
+
+- `git reset`: unstage all changes in all files. May also take arguments (see below).
+  - `<file-name>`: unstage the changes in the file named `<file-name>`
