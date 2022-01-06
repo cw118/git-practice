@@ -35,12 +35,18 @@ Here's a list of some tutorials that I've followed (or plan on following) on Git
 - **Command line interface (CLI):** a command line program that accepts text input for users to interact with operating systems — this includes managing files (creating, moving, deleting, etc.), running programs, configuring computers, etc.
   - Some examples of CLIs: Command Prompt (Windows), Terminal (Mac), Linux, etc.
   - Many applications use a command line and/or CLI, or create their own command line tool: npm (a package manager for JavaScript), Git, GitHub CLI, etc.
+- **Local machine:** this really just refers to your laptop, desktop, or whichever electronic device you're using to code
+  - A *local copy/clone/version, etc.* is just a copy of a file that you've cloned from a remote source onto your computer. For example, if you fork this repository on GitHub, then clone it into a folder named `cw118-git-practice` on your laptop, the folder/directory `cw118-git-training` is considered a local copy/clone/version of this `git-practice` repo.
 
 ## Basic commands
 
 Starting by familiarizing myself with basic Git commands and following some tutorials.
 
 ### Key/general commands
+
+While GitHub interface is quite easy to use and navigate, it doesn't allow (at least from what I've seen) users to edit multiple files in one commit (not counting adding files by upload). To commit and push changes in multiple files at once *(in just one commit, rather than committing separately for each file)*, you'll want to make a local copy of a repository on your computer; you can then use Git to save and push your local changes to a/the GitHub repo online.
+
+> **Note:** There are also tools like [GitHub Desktop](https://desktop.github.com/) and [Git Tower](https://www.git-tower.com/windows) (and many, many more!) that help simplify Git and your development workflow with a more "user-friendly" interface, but it's always good to know/learn the terminal.
 
 #### Terminal/Command line
 
@@ -54,8 +60,11 @@ Starting by familiarizing myself with basic Git commands and following some tuto
 #### Git
 
 - `git init`: initialize a (local) directory as a Git repository
-  - To undo, you can remove the hidden `.git` folder *(verify its presence with the `ls -la` command in your terminal)* using `rm -rf .git`.
-- `git clone`: clone a repository
+  - To "undo", you can remove the hidden `.git` folder *(verify its presence with the `ls -la` command in your terminal)* using `rm -rf .git`.
+  - > This is only necessary if you first created a directory on your local machine. If you cloned a remote repo onto your device (see `git clone` directly below), Git will initialize the repository for you.
+- `git clone`: clone a repository (see below for details on usage)
+  - On the GitHub interface, click the green "Code" button for cloning options. You should see `HTTPS` (recommended), `SSH`, and `GitHub CLI`, as well as something along the lines of "Open with GitHub Desktop" and "Download ZIP". To clone using `HTTPS`, open your terminal and navigate to the directory (folder) where you want to clone the repo, then type `git clone <https-url>`.
+    - > For example, to clone this repo (`git-practice`) using `HTTPS`, you would use this command: `git clone https://github.com/cw118/git-practice.git`.
 - `git status`: show changes, as well as tracked and untracked files, in a directory
 - `git add`: tell Git to track certain or all files/changes in order to include them in a commit (using `git add .` will stage all files/changes with Git, or in other words, cause all files to be tracked). **Saves pending changes, or the current project state, into commit history and prepares (stages) for a proper commit.** Typically used before the `commit` command (see below).
   - Argument `<filename>`: add/save changes for the file specified (replace `<filename>` with the actual name of the file to be tracked)
@@ -68,7 +77,7 @@ Starting by familiarizing myself with basic Git commands and following some tuto
   - Argument `--reverse`: show a log of commits in chronological order (starts with the first commit). *Reverses the default order.*
 - `git push`: push commit changes live to remote repository (where your project is hosted). See possible arguments below.
   - `origin <branch-name>`: push commit changes to a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration)
-  - `-u origin <branch-name>`: set an origin branch as **u**pstream *(simplifies pushing to the remote repo as `git push -u` without the `origin` and `<branch-name>` arguments, or even just `git push`)*
+  - `-u origin <branch-name>`: set an origin branch as **u**pstream *(simplifies pushing to the remote repo as `git push -u` without the `origin` and `<branch-name>` arguments, **or even just `git push`**)*
     - ***Note:*** `-u` is a shorthand for `--set-upstream`.
   - `-u`: push commit changes to upstream — only possible once upstream has been set *(see the argument directly above)*
   - `--set-upstream origin <branch-name>`: push the current branch and set its upstream branch with a name of `<branch-name>` *(the name used for the upstream branch usually matches the name of the current local branch)*. Often used when a locally created branch does not yet have an upstream branch on the remote repository.
@@ -84,13 +93,13 @@ Starting by familiarizing myself with basic Git commands and following some tuto
 
 **Git branching** involves the creation of **branches** used for *development* in addition to the main/default *(typically called `main` or `master`)* branch used for *production*. The term "branch" refers to the resemblance of a Git workflow to tree branches as shown in the diagram *(courtesy of [Atlassian's tutorial on Git branching](https://www.atlassian.com/git/tutorials/using-branches))* below:
 
-![Diagram of branches in Git](git-branching.png)
+![Diagram of branches in Git](assets/git-branching.png)
 
 When a branch is first created, its code and content is identical to those of the branch off of which it was based. For example, if a branch named `feature` were to be created from `main`, all code and content of the `feature` branch would be the same as the code and content of the `main` branch until you make modifications. 
 
 Each branch only keeps track of the changes are made on its own copy of files, and has no way of "knowing" what changes were made to other branches — to continue with the `feature` and `main` example, if you pushed changes to the `feature` branch, then switched back to the `main` branch, you wouldn't see any of those modifications reflected in `main`. 
 
-This is extremely useful whether you're working independently or collaborating with a group of people, because Git branches allow you to create and test new features for your project that may break your code *(you wouldn't want to save them to the production branch before fixing all bugs and issues)*. In addition, branches also allow you to work on code in a sort of "sandbox area", without having to push anything to production until you've finished developing code that functions properly (and that you're satisfied with).
+This is extremely useful whether you're working independently or collaborating with a group of people, because Git branches allow you to create and test new features for your project that may break your code *(you wouldn't want to save them to the production branch before fixing all bugs and issues)*. In addition, branches also allow you to work on code in a sort of "sandbox area", without having to push anything to production until you've finished developing code that functions properly (and that you're satisfied with). [Skip to branching commands here.](#branching-commands)
 
 ### Pull requests and forking
 
@@ -104,14 +113,17 @@ With a forked repo, you can also create branches, edit files, and pretty much us
 
 ### Branching commands
 
+Read more about [what branching means in Git/development workflow](#branching-in-git), and/or [pull requests and forking repositories](#pull-requests-and-forking).
+
 - `git branch`: see all branches of the repository you're in. See below for more information and possible arguments.
-  - The branch that is highlighted *(in a different color)* and that has an asterisk (`*`) preceding its name is the branch you're currently on (e.g. `* main` means you're currently on the main branch)
+  - > The branch that is highlighted *(in a different color)* and that has an asterisk (`*`) preceding its name is the branch you're currently on (e.g. `* main` means you're currently on the main branch)
   - Argument `-d <branch-name>`: delete the branch `<branch-name>`
     - *In general, once a branch has been merged into `main`/`master`, it won't be used again and is deleted.*
+  - Argument `-m <old-name> <new-name>`: rename the branch `<old-name>` to `<new-name>`
 - `git checkout`: manipulate branches of the repository you're in. See some possible arguments below:
   - `-b <branch-name>`: create and switch to a new branch named (whatever you type as) `<branch-name>`
   - `<branch-name>`: switch to the branch named `<branch-name>`
-    - If you press the `tab` key, Git will also suggest/autocomplete the name of an existing branch based on what you've typed so far. For example, if there's a `main` and a `feature-readme-update` branch, you could type `git checkout ` then start typing "feature", then press `tab` for Git to autocomplete.
+    - > If you press the `tab` key, Git will also suggest/autocomplete the name of an existing branch based on what you've typed so far. For example, if there's a `main` and a `feature-readme-update` branch, you could type `git checkout ` then start typing "feature", then press `tab` for Git to autocomplete.
 - `git diff`: shows the changes that have been made by comparing two versions of your code *(shows the **diff**erence between the lines of your files)*
   - Argument `<branch-name>`: shows the diff between the current branch and `<branch-name>`
 - `git merge`: merge branches (update one branch with changes made in another)
@@ -129,13 +141,17 @@ While fixing merge conflicts can be done at the terminal, the easiest way is oft
 
 ## Undoing in Git
 
-Sometimes you'll want to undo in Git, whether it be unstaging changes or undoing a commit. This section covers the commands that'll allow you to undo various actions in Git.
+Sometimes you'll want to undo in Git, whether it be unstaging changes or undoing a commit. This section covers the commands that'll allow you to undo various actions in Git. 
+
+*Unstaging* or *staging* changes refers to whether these changes have been saved in Git or not — staging changes (done with [`git add`](#git)) saves them and prepares them to be committed, while unstaging changes (see below) "removes their saved status" but does **not** delete them *(you'll still see your changes in the modified files)*.
 
 - `git reset`: unstage all changes in all files. May also take arguments (see below).
-  - `<file-name>`: unstage the changes in the file named `<file-name>`. *Note that unstaging will **not** remove your changes. Unstaging only means your changes are no longer saved in Git, but they will remain in your files.*
-  - `HEAD~<number-here>`: **undo and unstage the changes** of one or several **commits** *(note the usage of `~`)*. Tells Git to point `HEAD` *(refers/points to the current commit you're viewing)* at a commit `<number-here>` commits before. For example, `git reset HEAD~1` tells Git to point at the previous commit, since it's one commit "before" the current one, thus undoing and unstaging the changes you just committed.
+  - `<file-name>`: unstage the changes in the file named `<file-name>`
+  - > Note that unstaging will **not** remove your changes. Unstaging only means your changes are no longer saved in Git, but they will remain in your files.
+  - `HEAD~<number-here>`: **undo and unstage the changes** of one or several **commits** *(note the usage of `~`)*. Tells Git to point `HEAD` *(refers/points to the current commit you're viewing)* at a commit `<number-here>` commits before. 
+    - > For example, `git reset HEAD~1` tells Git to point at the previous commit, since it's one commit "before" the current one, thus undoing and unstaging the changes you just committed.
   - `<commit-hash>`: unstage any changes made after the commit with the hash `<commit-hash>`
-    - **Note:** To Git, each commit is uniquely identifiable by its **commit hash** — these can be seen using `git log` *(see the [Git subsection](#git) in [Key/general commands](#keygeneral-commands))*. A commit hash can look something like this: `cc73163178da991374726d2057f834cfb9730308`.
-  - `--hard`: unstage **and remove** all changes from/up to a certain commit. Additional arguments such as a **commit hash** (see directly above) can be "combined" with this one to specify to which point changes should be unstaged and removed.
+    - > **Note:** To Git, each commit is uniquely identifiable by its **commit hash** — these can be seen using `git log` *(see the [Git subsection](#git) in [Key/general commands](#keygeneral-commands))*. A commit hash can look something like this: `cc73163178da991374726d2057f834cfb9730308`.
+  - `--hard`: unstage **and remove (delete)** all changes from/up to a certain commit. Additional arguments such as a **commit hash** (see directly above) can be "combined" with this one to specify to which point changes should be unstaged and removed.
 
 <!-- To add in a future "Signing Git commits" section: - `-S`: this flag creates a [signed Git commit](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) *and should add a `Verified` badge to the commit when you view it on GitHub*. -->

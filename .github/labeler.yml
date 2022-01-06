@@ -1,0 +1,21 @@
+# For more information on GitHub Actions' labeler, see https://github.com/actions/labeler
+
+assets:
+- assets/**/*
+
+documentation:
+- '*.md'
+
+examples:
+# Markdown files are reserved for documentation purposes
+# YAML files are reserved for Actions and workflows/system
+# Nearly any other file format can be used as an example/practice file (the below are some potentially easier ones to work with)
+- '*.html'
+- '*.css'
+- '*.js'
+- '*.txt'
+- '*.py'
+- '*.json'
+
+workflow:
+- .github/**/*
