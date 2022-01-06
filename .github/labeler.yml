@@ -9,13 +9,8 @@ documentation:
 examples:
 # Markdown files are reserved for documentation purposes
 # YAML files are reserved for Actions and workflows/system
-# Nearly any other file format can be used as an example/practice file (the below are some potentially easier ones to work with)
-- '*.html'
-- '*.css'
-- '*.js'
-- '*.txt'
-- '*.py'
-- '*.json'
+# Nearly any other file format can easily be used as an example/practice file (.html, .txt, .py, etc.)
+- examples/**/*
 
 workflow:
 - .github/**/*
