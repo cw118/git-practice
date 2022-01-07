@@ -36,7 +36,7 @@ Here's a list of some tutorials that I've followed (or plan on following) on Git
   - Some examples of CLIs: Command Prompt (Windows), Terminal (Mac), Linux, etc.
   - Many applications use a command line and/or CLI, or create their own command line tool: npm (a package manager for JavaScript), Git, GitHub CLI, etc.
 - **Local machine:** this really just refers to your laptop, desktop, or whichever electronic device you're using to code
-  - A *local copy/clone/version, etc.* is just a copy of a file that you've cloned from a remote source onto your computer. For example, if you fork this repository on GitHub, then clone it into a folder named `cw118-git-practice` on your laptop, the folder/directory `cw118-git-training` is considered a local copy/clone/version of this `git-practice` repo.
+  - A *local copy/clone/version, etc.* is just a copy of a file that you've cloned from a remote source onto your computer. For example, if you fork this repository on GitHub, then clone it into a folder named `cw118-git-practice` on your laptop, the folder/directory `cw118-git-practice` is considered a local copy/clone/version of this `git-practice` repo.
 
 ## Basic commands
 
@@ -52,6 +52,7 @@ While GitHub interface is quite easy to use and navigate, it doesn't allow (at l
 
 - `clear`: move your terminal/command line scrollbar so that you see a clear screen *("removes clutter")*
 - `q`: quit/"escape" (often used after commands like `git diff`, `git log`, etc.)
+  - > **Note:** The `q` command is not a standard terminal command — it's not one to be typed in your terminal, and is not "submitted" or confirmed by pressing the <kbd>Enter</kbd> key. In situations where the <kbd>q</kbd> command can be used, just press the <kbd>Q</kbd> key.
 - `ls`: list the files and directories in your current directory. See possible arguments/flags below and a usage example.
   - The `-l` flag indicates a long listing format
   - The `-a` flag enables viewing of **all** files, **including hidden ones** (such as the `.git` folder)
