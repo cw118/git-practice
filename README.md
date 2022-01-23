@@ -69,7 +69,7 @@ While GitHub interface is quite easy to use and navigate, it doesn't allow (at l
 - `git status`: show changes, as well as tracked and untracked files, in a directory
 - `git add`: tell Git to track certain or all files/changes in order to include them in a commit (using `git add .` will stage all files/changes with Git, or in other words, cause all files to be tracked). **Saves pending changes, or the current project state, into commit history and prepares (stages) for a proper commit.** Typically used before the `commit` command (see below).
   - Argument `<filename>`: add/save changes for the file specified (replace `<filename>` with the actual name of the file to be tracked)
-  - Argument `.`: add/save changes for all files in the directory
+  - Argument `.` (period): add/save changes for all files in the directory
 - `git commit`: commit (save) changes. See arguments below.
   - ***First*** `-m "<message-here>"`: sets commit message **(required**, unless you're using another shorthand argument that has the same purpose such as `-am`). *Note the use of double quotes around the message text!*
   - ***Second*** `-m "<description-here>"`: sets commit description (optional). *Note the use of double quotes around the description text!*
@@ -114,7 +114,7 @@ With a forked repo, you can also create branches, edit files, and pretty much us
 
 ### Branching commands
 
-Read more about [what branching means in Git/development workflow](#branching-in-git), and/or [pull requests and forking repositories](#pull-requests-and-forking).
+Read more about [what branching means in Git/development workflow](#branching-with-git), and/or [pull requests and forking repositories](#pull-requests-and-forking).
 
 - `git branch`: see all branches of the repository you're in. See below for more information and possible arguments.
   - > The branch that is highlighted *(in a different color)* and that has an asterisk (`*`) preceding its name is the branch you're currently on (e.g. `* main` means you're currently on the main branch)
@@ -124,7 +124,7 @@ Read more about [what branching means in Git/development workflow](#branching-in
 - `git checkout`: manipulate branches of the repository you're in. See some possible arguments below:
   - `-b <branch-name>`: create and switch to a new branch named (whatever you type as) `<branch-name>`
   - `<branch-name>`: switch to the branch named `<branch-name>`
-    - > If you press the `tab` key, Git will also suggest/autocomplete the name of an existing branch based on what you've typed so far. For example, if there's a `main` and a `feature-readme-update` branch, you could type `git checkout ` then start typing "feature", then press `tab` for Git to autocomplete.
+    - > If you press the `tab` key, Git will also suggest/autocomplete the name of an existing branch based on what you've typed so far. For example, if there's a `main` and a `feature-readme-update` branch, you could type `git checkout` then start typing "feature", then press `tab` for Git to autocomplete.
 - `git diff`: shows the changes that have been made by comparing two versions of your code *(shows the **diff**erence between the lines of your files)*
   - Argument `<branch-name>`: shows the diff between the current branch and `<branch-name>`
 - `git merge`: merge branches (update one branch with changes made in another)
@@ -154,5 +154,3 @@ Sometimes you'll want to undo in Git, whether it be unstaging changes or undoing
   - `<commit-hash>`: unstage any changes made after the commit with the hash `<commit-hash>`
     - > **Note:** To Git, each commit is uniquely identifiable by its **commit hash** — these can be seen using `git log` *(see the [Git subsection](#git) in [Key/general commands](#keygeneral-commands))*. A commit hash can look something like this: `cc73163178da991374726d2057f834cfb9730308`.
   - `--hard`: unstage **and remove (delete)** all changes from/up to a certain commit. Additional arguments such as a **commit hash** (see directly above) can be "combined" with this one to specify to which point changes should be unstaged and removed.
-
-<!-- To add in a future "Signing Git commits" section: - `-S`: this flag creates a [signed Git commit](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) *and should add a `Verified` badge to the commit when you view it on GitHub*. -->
