@@ -160,6 +160,12 @@ Sometimes you'll want to undo in Git, whether it be unstaging changes or undoing
 
 ## Commit signing and verification
 
-Coming soon!
+If you're not sure what "signing a commit" or a "verified commit" means, I suggest [reading this GitHub Docs page](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification), and reading all pages/guides necessary to generate and add your signing key. Note that this section only briefly covers setting up a **GPG** signing key (refer to the links provided below for full instructions on GitHub Docs).
 
-<!-- To add in a future "Signing Git commits" section: - `-S`: this flag creates a [signed Git commit](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) *and should add a `Verified` badge to the commit when you view it on GitHub*. -->
+A green "Verified" badge should appear on your signed commits on the GitHub interface.
+
+- `git config --global user.signingkey <signing-key>`: set your GPG signing key globally in Git
+  - *For instructions on telling Git your S/MIME signing key, read [Telling Git about your X.509 key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key#telling-git-about-your-x509-key-1).*
+- `git commit -S -m "<message>"`: the `-S` flag is responsible for signing a commit where it's used *(see below for signing commits by default)*
+- `git config commit.gpgsign true`: configure Git client to sign commits by default, using your GPG signing key, **for a local repository**
+  - See [Signing commits with your GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) for more information.
