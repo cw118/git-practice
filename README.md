@@ -37,7 +37,7 @@ Here's a list of some tutorials that I've followed (or plan on following) on Git
   - Some examples of CLIs: Command Prompt (Windows), Terminal (Mac), Linux, etc.
   - Many applications use a command line and/or CLI, or create their own command line tool: npm (a package manager for JavaScript), Git, GitHub CLI, etc.
 - **Local machine:** this really just refers to your laptop, desktop, or whichever electronic device you're using to code
-  - A *local copy/clone/version, etc.* is just a copy of a file that you've cloned from a remote source onto your computer. For example, if you fork this repository on GitHub, then clone it into a folder named `cw118-git-practice` on your laptop, the folder/directory `cw118-git-training` is considered a local copy/clone/version of this `git-practice` repo.
+  - A *local copy/clone/version, etc.* is just a copy of a file that you've cloned from a remote source onto your computer. For example, if you fork this repository on GitHub, then clone it into a folder named `cw118-git-practice` on your laptop, the folder/directory `cw118-git-practice` is considered a local copy/clone/version of this `git-practice` repo.
 
 ## Basic commands
 
@@ -53,6 +53,7 @@ While GitHub interface is quite easy to use and navigate, it doesn't allow (at l
 
 - `clear`: move your terminal/command line scrollbar so that you see a clear screen *("removes clutter")*
 - `q`: quit/"escape" (often used after commands like `git diff`, `git log`, etc.)
+  - > **Note:** The `q` command is not a standard terminal command — it's not one to be typed in your terminal, and is not "submitted" or confirmed by pressing the <kbd>Enter</kbd> key. In situations where the <kbd>q</kbd> command can be used, just press the <kbd>Q</kbd> key.
 - `ls`: list the files and directories in your current directory. See possible arguments/flags below and a usage example.
   - The `-l` flag indicates a long listing format
   - The `-a` flag enables viewing of **all** files, **including hidden ones** (such as the `.git` folder)
@@ -69,7 +70,7 @@ While GitHub interface is quite easy to use and navigate, it doesn't allow (at l
 - `git status`: show changes, as well as tracked and untracked files, in a directory
 - `git add`: tell Git to track certain or all files/changes in order to include them in a commit (using `git add .` will stage all files/changes with Git, or in other words, cause all files to be tracked). **Saves pending changes, or the current project state, into commit history and prepares (stages) for a proper commit.** Typically used before the `commit` command (see below).
   - Argument `<filename>`: add/save changes for the file specified (replace `<filename>` with the actual name of the file to be tracked)
-  - Argument `.`: add/save changes for all files in the directory
+  - Argument `.` (period): add/save changes for all files in the directory
 - `git commit`: commit (save) changes. See arguments below.
   - ***First*** `-m "<message-here>"`: sets commit message **(required**, unless you're using another shorthand argument that has the same purpose such as `-am`). *Note the use of double quotes around the message text!*
   - ***Second*** `-m "<description-here>"`: sets commit description (optional). *Note the use of double quotes around the description text!*
@@ -114,7 +115,7 @@ With a forked repo, you can also create branches, edit files, and pretty much us
 
 ### Branching commands
 
-Read more about [what branching means in Git/development workflow](#branching-in-git), and/or [pull requests and forking repositories](#pull-requests-and-forking).
+Read more about [what branching means in Git/development workflow](#branching-with-git), and/or [pull requests and forking repositories](#pull-requests-and-forking).
 
 - `git branch`: see all branches of the repository you're in. See below for more information and possible arguments.
   - > The branch that is highlighted *(in a different color)* and that has an asterisk (`*`) preceding its name is the branch you're currently on (e.g. `* main` means you're currently on the main branch)
