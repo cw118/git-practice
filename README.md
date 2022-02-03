@@ -2,7 +2,7 @@
 
 A repo I'm using to train my Git, GitHub, and command line skills, as well as to save some of my notes on these topics.
 
-### Table of contents
+## Table of contents
 
 - [Tutorials](#tutorials)
 - [Vocabulary](#vocabulary)
@@ -13,6 +13,7 @@ A repo I'm using to train my Git, GitHub, and command line skills, as well as to
   - [Branching commands](#branching-commands)
   - [Merge conflicts](#merge-conflicts)
 - [Undoing in Git](#undoing-in-git)
+- [Commit signing and verification](#commit-signing-and-verification)
 
 ## Tutorials
 
@@ -27,8 +28,8 @@ Here's a list of some tutorials that I've followed (or plan on following) on Git
   - For example, a version control system allows you to save an initial version of something like code, then as you update/modify the code, you can save it into the version control system again and again. You'll also be able to view the history of your code; that is, you can look back at all of the changes you've made over time.
   - Some other benefits of using a version control system: facilitates tracking down bugs, allows you to return/revert to a previous version of your code, makes collaboration on a project *(such as open source projects)* significantly easier, etc.
 - **Git:** a free, open source version control system/tool installed locally on devices — (one of) the most widely used in development today.
-  - Install Git here: https://git-scm.com/downloads
-  - A helpful tutorial by Atlassian on installing Git: https://www.atlassian.com/git/tutorials/install-git
+  - Install Git here: [https://git-scm.com/downloads](https://git-scm.com/downloads)
+  - A helpful tutorial by Atlassian on installing Git: [https://www.atlassian.com/git/tutorials/install-git](https://www.atlassian.com/git/tutorials/install-git)
 - **GitHub:** an online, cloud-based code hosting platform/service for version control and collaboration built around Git, often used to manage Git repositories
 - **Directory:** in computing, a directory can be described simply as a folder.
 - **Terminal (or command line):** a blank line and cursor on a computer screen allowing users to type text commands for immediate execution.
@@ -96,9 +97,9 @@ While GitHub interface is quite easy to use and navigate, it doesn't allow (at l
 
 ![Diagram of branches in Git](assets/git-branching.png)
 
-When a branch is first created, its code and content is identical to those of the branch off of which it was based. For example, if a branch named `feature` were to be created from `main`, all code and content of the `feature` branch would be the same as the code and content of the `main` branch until you make modifications. 
+When a branch is first created, its code and content is identical to those of the branch off of which it was based. For example, if a branch named `feature` were to be created from `main`, all code and content of the `feature` branch would be the same as the code and content of the `main` branch until you make modifications.
 
-Each branch only keeps track of the changes are made on its own copy of files, and has no way of "knowing" what changes were made to other branches — to continue with the `feature` and `main` example, if you pushed changes to the `feature` branch, then switched back to the `main` branch, you wouldn't see any of those modifications reflected in `main`. 
+Each branch only keeps track of the changes are made on its own copy of files, and has no way of "knowing" what changes were made to other branches — to continue with the `feature` and `main` example, if you pushed changes to the `feature` branch, then switched back to the `main` branch, you wouldn't see any of those modifications reflected in `main`.
 
 This is extremely useful whether you're working independently or collaborating with a group of people, because Git branches allow you to create and test new features for your project that may break your code *(you wouldn't want to save them to the production branch before fixing all bugs and issues)*. In addition, branches also allow you to work on code in a sort of "sandbox area", without having to push anything to production until you've finished developing code that functions properly (and that you're satisfied with). [Skip to branching commands here.](#branching-commands)
 
@@ -129,6 +130,9 @@ Read more about [what branching means in Git/development workflow](#branching-wi
   - Argument `<branch-name>`: shows the diff between the current branch and `<branch-name>`
 - `git merge`: merge branches (update one branch with changes made in another)
   - Argument `<branch-name>`: merges `<branch-name>` into the current branch
+- `git stash`: stash your changes on the current branch to return to later
+  - Stashing can be especially useful if you'd like to switch to another branch without bringing your current changes to that branch, and also without losing those edits before switching — Git essentially stores your changes (**stash**es them away) on your current branch, after which you can safely switch to a different branch; you can then restore those stashed changes when you return *(see below)*.
+  - `git stash pop`: restore your stashed changes (bring/"pop" them out from their stash)
 
 ### Merge conflicts
 
@@ -142,15 +146,27 @@ While fixing merge conflicts can be done at the terminal, the easiest way is oft
 
 ## Undoing in Git
 
-Sometimes you'll want to undo in Git, whether it be unstaging changes or undoing a commit. This section covers the commands that'll allow you to undo various actions in Git. 
+Sometimes you'll want to undo in Git, whether it be unstaging changes or undoing a commit. This section covers the commands that'll allow you to undo various actions in Git.
 
 *Unstaging* or *staging* changes refers to whether these changes have been saved in Git or not — staging changes (done with [`git add`](#git)) saves them and prepares them to be committed, while unstaging changes (see below) "removes their saved status" but does **not** delete them *(you'll still see your changes in the modified files)*.
 
 - `git reset`: unstage all changes in all files. May also take arguments (see below).
   - `<file-name>`: unstage the changes in the file named `<file-name>`
   - > Note that unstaging will **not** remove your changes. Unstaging only means your changes are no longer saved in Git, but they will remain in your files.
-  - `HEAD~<number-here>`: **undo and unstage the changes** of one or several **commits** *(note the usage of `~`)*. Tells Git to point `HEAD` *(refers/points to the current commit you're viewing)* at a commit `<number-here>` commits before. 
+  - `HEAD~<number-here>`: **undo and unstage the changes** of one or several **commits** *(note the usage of `~`)*. Tells Git to point `HEAD` *(refers/points to the current commit you're viewing)* at a commit `<number-here>` commits before.
     - > For example, `git reset HEAD~1` tells Git to point at the previous commit, since it's one commit "before" the current one, thus undoing and unstaging the changes you just committed.
   - `<commit-hash>`: unstage any changes made after the commit with the hash `<commit-hash>`
     - > **Note:** To Git, each commit is uniquely identifiable by its **commit hash** — these can be seen using `git log` *(see the [Git subsection](#git) in [Key/general commands](#keygeneral-commands))*. A commit hash can look something like this: `cc73163178da991374726d2057f834cfb9730308`.
   - `--hard`: unstage **and remove (delete)** all changes from/up to a certain commit. Additional arguments such as a **commit hash** (see directly above) can be "combined" with this one to specify to which point changes should be unstaged and removed.
+
+## Commit signing and verification
+
+If you're not sure what "signing a commit" or a "verified commit" means, I suggest [reading this GitHub Docs page](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification), and reading all pages/guides necessary to generate and add your signing key. Note that this section only briefly covers setting up a **GPG** signing key (refer to the links provided below for full instructions on GitHub Docs).
+
+A green "Verified" badge should appear on your signed commits on the GitHub interface.
+
+- `git config --global user.signingkey <signing-key>`: set your GPG signing key globally in Git
+  - *For instructions on telling Git your S/MIME signing key, read [Telling Git about your X.509 key](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key#telling-git-about-your-x509-key-1).*
+- `git commit -S -m "<message>"`: the `-S` flag is responsible for signing a commit where it's used *(see below for signing commits by default)*
+- `git config commit.gpgsign true`: configure Git client to sign commits by default, using your GPG signing key, **for a local repository**
+  - See [Signing commits with your GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) for more information.
