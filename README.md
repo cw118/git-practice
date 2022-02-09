@@ -158,6 +158,8 @@ Sometimes you'll want to undo in Git, whether it be unstaging changes or undoing
   - `<commit-hash>`: unstage any changes made after the commit with the hash `<commit-hash>`
     - > **Note:** To Git, each commit is uniquely identifiable by its **commit hash** — these can be seen using `git log` *(see the [Git subsection](#git) in [Key/general commands](#keygeneral-commands))*. A commit hash can look something like this: `cc73163178da991374726d2057f834cfb9730308`.
   - `--hard`: unstage **and remove (delete)** all changes from/up to a certain commit. Additional arguments such as a **commit hash** (see directly above) can be "combined" with this one to specify to which point changes should be unstaged and removed.
+- `git commit --amend`: "amend"/modify your commit message
+  - After typing the above command, enter your desired message (first `-m`) and description (second `-m`), then press <kbd>Enter</kbd> to save.
 
 ## Commit signing and verification
 
