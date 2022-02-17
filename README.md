@@ -6,7 +6,7 @@ A repo I'm using to train my Git, GitHub, and command line skills, as well as to
 
 - [Tutorials](#tutorials)
 - [Vocabulary](#vocabulary)
-- [Basic commands](#basic-commands)
+- [Common commands](#common-commands)
   - [Key/general commands](#keygeneral-commands)
 - [Branching with Git](#branching-with-git)
   - [Pull requests and forking](#pull-requests-and-forking)
