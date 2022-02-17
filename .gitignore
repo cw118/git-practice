@@ -1,0 +1,2 @@
+# Avoid pushing local/custom lint configuration
+.markdownlint.json
