@@ -80,12 +80,12 @@ While GitHub interface is quite easy to use and navigate, it doesn't allow (at l
 - `git push`: push commit changes live to remote repository (where your project is hosted). See possible arguments below.
   - `origin <branch-name>`: push commit changes to a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration)
   - `-u origin <branch-name>`: set an origin branch as **u**pstream *(simplifies pushing to the remote repo as `git push -u` without the `origin` and `<branch-name>` arguments, **or even just `git push`**)*
-    - ***Note:*** `-u` is a shorthand for `--set-upstream`.
-  - `-u`: push commit changes to upstream — only possible once upstream has been set *(see the argument directly above)*
+  - `-u`: shorthand for `--set-upstream`. Push commit changes to upstream — only possible once upstream has been set *(see the argument directly above)*
   - `--set-upstream origin <branch-name>`: push the current branch and set its upstream branch with a name of `<branch-name>` *(the name used for the upstream branch usually matches the name of the current local branch)*. Often used when a locally created branch does not yet have an upstream branch on the remote repository.
   - `origin --delete <branch-name>`: delete a branch on the **remote** (repository). *See [Branching commands](#branching-commands) for more on commands involving Git branches, as well as deleting local branches.)*
   - `origin <branch-name> --force`: (**Note:** do **not** force push unless you know what you're doing! It's generally recommended to avoid using force push on shared commit history because you risk erasing the history of your collaborators' work!) force push, as in delete previous commit(s) and push the current one
     `-f`: shorthand flag for `--force` (see above)
+    - *Read more about `push --force` [here](https://www.git-tower.com/learn/git/faq/git-force-push)*
 - `git pull`: pulls changes from the remote repository to your local copy. Typing this command without additional arguments will suffice if you have already set upstream *(see `git push` for more details)*. See possible arguments below.
   - `origin <branch-name>`: pull changes from a branch of your remote/origin repository (the default tends to be `main` or `master`, depending on your configuration) to your local copy
 - `git remote`: depending on the arguments that follow, provides or modifies information on the remote repository
