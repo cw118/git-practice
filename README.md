@@ -39,7 +39,7 @@ Here's a list of some tutorials that I've followed (or plan on following) on Git
 - **Local machine:** this really just refers to your laptop, desktop, or whichever electronic device you're using to code
   - A *local copy/clone/version, etc.* is just a copy of a file that you've cloned from a remote source onto your computer. For example, if you fork this repository on GitHub, then clone it into a folder named `cw118-git-practice` on your laptop, the folder/directory `cw118-git-practice` is considered a local copy/clone/version of this `git-practice` repo.
 
-## Basic commands
+## Common commands
 
 Starting by familiarizing myself with basic Git commands and following some tutorials.
 
