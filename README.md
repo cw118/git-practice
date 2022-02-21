@@ -49,7 +49,9 @@ While GitHub interface is quite easy to use and navigate, it doesn't allow (at l
 
 > **Note:** There are also tools like [GitHub Desktop](https://desktop.github.com/) and [Git Tower](https://www.git-tower.com/windows) (and many, many more!) that help simplify Git and your development workflow with a more "user-friendly" interface, but it's always good to know/learn the terminal.
 
-#### Terminal/Command line
+#### Terminal/Command line (Bash)
+
+These will only work with `Bash` (Git Bash will also do).
 
 - `clear`: move your terminal/command line scrollbar so that you see a clear screen *("removes clutter")*
 - `q`: quit/"escape" (often used after commands like `git diff`, `git log`, etc.)
