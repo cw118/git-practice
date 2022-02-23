@@ -46,3 +46,5 @@ for NAME in $NAMES
     do
         echo "$NAME is a Weasley!"
 done
+
+# Examples/concepts based on Traversy Media's tutorial: https://www.youtube.com/watch?v=v-F3YLd6oMw
