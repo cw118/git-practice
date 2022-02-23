@@ -1,4 +1,4 @@
-# git-practice
+# Git Practice
 
 A repo I'm using to train my Git, GitHub, and command line skills, as well as to save some of my notes on these topics.
 
@@ -49,7 +49,9 @@ While GitHub interface is quite easy to use and navigate, it doesn't allow (at l
 
 > **Note:** There are also tools like [GitHub Desktop](https://desktop.github.com/) and [Git Tower](https://www.git-tower.com/windows) (and many, many more!) that help simplify Git and your development workflow with a more "user-friendly" interface, but it's always good to know/learn the terminal.
 
-#### Terminal/Command line
+#### Terminal/Command line (Bash)
+
+These will only work with `Bash` (Git Bash will also do, but other CLIs such as Windows Command Prompt will not recognize the following terminal commands).
 
 - `clear`: move your terminal/command line scrollbar so that you see a clear screen *("removes clutter")*
 - `q`: quit/"escape" (often used after commands like `git diff`, `git log`, etc.)
@@ -62,7 +64,7 @@ While GitHub interface is quite easy to use and navigate, it doesn't allow (at l
 #### Git
 
 - `git init`: initialize a (local) directory as a Git repository
-  - To "undo", you can remove the hidden `.git` folder *(verify its presence with the `ls -la` command in your terminal)* using `rm -rf .git`.
+  - To "undo", you can remove the hidden `.git` folder *(verify its presence with the `ls -la` command in your [terminal](https://github.com/cw118/git-practice#terminalcommand-line-bash))* using `rm -rf .git`.
   - > This is only necessary if you first created a directory on your local machine. If you cloned a remote repo onto your device (see `git clone` directly below), Git will initialize the repository for you.
 - `git clone`: clone a repository (see below for details on usage)
   - On the GitHub interface, click the green "Code" button for cloning options. You should see `HTTPS` (recommended), `SSH`, and `GitHub CLI`, as well as something along the lines of "Open with GitHub Desktop" and "Download ZIP". To clone using `HTTPS`, open your terminal and navigate to the directory (folder) where you want to clone the repo, then type `git clone <https-url>`.
@@ -83,7 +85,8 @@ While GitHub interface is quite easy to use and navigate, it doesn't allow (at l
   - `-u`: shorthand for `--set-upstream`. Push commit changes to upstream — only possible once upstream has been set *(see the argument directly above)*
   - `--set-upstream origin <branch-name>`: push the current branch and set its upstream branch with a name of `<branch-name>` *(the name used for the upstream branch usually matches the name of the current local branch)*. Often used when a locally created branch does not yet have an upstream branch on the remote repository.
   - `origin --delete <branch-name>`: delete a branch on the **remote** (repository). *See [Branching commands](#branching-commands) for more on commands involving Git branches, as well as deleting local branches.)*
-  - `origin <branch-name> --force`: (**Note:** do **not** force push unless you know what you're doing! It's generally recommended to avoid using force push on shared commit history because you risk erasing the history of your collaborators' work!) force push, as in delete previous commit(s) and push the current one
+  - `origin <branch-name> --force`: force push changes to the remote, as in delete previous commit(s) and push the current one
+  - > **Note:** do **not** force push unless you know what you're doing! It's generally recommended to avoid using force push on shared commit history because you risk erasing the history of your collaborators' work!
     `-f`: shorthand flag for `--force` (see above)
     - *Read more about `push --force` [here](https://www.git-tower.com/learn/git/faq/git-force-push)*
 - `git pull`: pulls changes from the remote repository to your local copy. Typing this command without additional arguments will suffice if you have already set upstream *(see `git push` for more details)*. See possible arguments below.
