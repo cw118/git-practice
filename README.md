@@ -126,6 +126,7 @@ Read more about [what branching means in Git/development workflow](#branching-wi
   - > The branch that is highlighted *(in a different color)* and that has an asterisk (`*`) preceding its name is the branch you're currently on (e.g. `* main` means you're currently on the main branch)
   - Argument `-d <branch-name>`: delete the branch `<branch-name>`
     - *In general, once a branch has been merged into `main`/`master`, it won't be used again and is deleted.*
+    - Git may suggest using `-D` (uppercase "D") in some cases; for example, if it detects that changes made on/committed to the branch you're trying to delete haven't been merged into `main`/`master`, Git will tell you to use the `-D` flag to confirm you truly want to delete the branch.
   - Argument `-m <old-name> <new-name>`: rename the branch `<old-name>` to `<new-name>`
 - `git checkout`: manipulate branches of the repository you're in. See some possible arguments below:
   - `-b <branch-name>`: create and switch to a new branch named (whatever you type as) `<branch-name>`
