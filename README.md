@@ -85,7 +85,8 @@ These will only work with `Bash` (Git Bash will also do).
   - `-u`: shorthand for `--set-upstream`. Push commit changes to upstream — only possible once upstream has been set *(see the argument directly above)*
   - `--set-upstream origin <branch-name>`: push the current branch and set its upstream branch with a name of `<branch-name>` *(the name used for the upstream branch usually matches the name of the current local branch)*. Often used when a locally created branch does not yet have an upstream branch on the remote repository.
   - `origin --delete <branch-name>`: delete a branch on the **remote** (repository). *See [Branching commands](#branching-commands) for more on commands involving Git branches, as well as deleting local branches.)*
-  - `origin <branch-name> --force`: (**Note:** do **not** force push unless you know what you're doing! It's generally recommended to avoid using force push on shared commit history because you risk erasing the history of your collaborators' work!) force push, as in delete previous commit(s) and push the current one
+  - `origin <branch-name> --force`: force push changes to the remote, as in delete previous commit(s) and push the current one
+  - > **Note:** do **not** force push unless you know what you're doing! It's generally recommended to avoid using force push on shared commit history because you risk erasing the history of your collaborators' work!
     `-f`: shorthand flag for `--force` (see above)
     - *Read more about `push --force` [here](https://www.git-tower.com/learn/git/faq/git-force-push)*
 - `git pull`: pulls changes from the remote repository to your local copy. Typing this command without additional arguments will suffice if you have already set upstream *(see `git push` for more details)*. See possible arguments below.
