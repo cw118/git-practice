@@ -1,4 +1,4 @@
-# git-practice
+# Git Practice
 
 A repo I'm using to train my Git, GitHub, and command line skills, as well as to save some of my notes on these topics.
 
@@ -51,7 +51,7 @@ While GitHub interface is quite easy to use and navigate, it doesn't allow (at l
 
 #### Terminal/Command line (Bash)
 
-These will only work with `Bash` (Git Bash will also do).
+These will only work with `Bash` (Git Bash will also do, but other CLIs such as Windows Command Prompt will not recognize the following terminal commands).
 
 - `clear`: move your terminal/command line scrollbar so that you see a clear screen *("removes clutter")*
 - `q`: quit/"escape" (often used after commands like `git diff`, `git log`, etc.)
@@ -64,7 +64,7 @@ These will only work with `Bash` (Git Bash will also do).
 #### Git
 
 - `git init`: initialize a (local) directory as a Git repository
-  - To "undo", you can remove the hidden `.git` folder *(verify its presence with the `ls -la` command in your terminal)* using `rm -rf .git`.
+  - To "undo", you can remove the hidden `.git` folder *(verify its presence with the `ls -la` command in your [terminal](https://github.com/cw118/git-practice#terminalcommand-line-bash))* using `rm -rf .git`.
   - > This is only necessary if you first created a directory on your local machine. If you cloned a remote repo onto your device (see `git clone` directly below), Git will initialize the repository for you.
 - `git clone`: clone a repository (see below for details on usage)
   - On the GitHub interface, click the green "Code" button for cloning options. You should see `HTTPS` (recommended), `SSH`, and `GitHub CLI`, as well as something along the lines of "Open with GitHub Desktop" and "Download ZIP". To clone using `HTTPS`, open your terminal and navigate to the directory (folder) where you want to clone the repo, then type `git clone <https-url>`.
