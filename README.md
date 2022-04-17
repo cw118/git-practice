@@ -182,3 +182,7 @@ A green "Verified" badge should appear on your signed commits on the GitHub inte
 ## Advanced concepts
 
 Git provides much more functionality than the basic `add`, `commit` and `push`. To fully take advantage of this powerful tool, you'll be going beyond those commands.
+
+### Advanced commands
+
+- `git rebase`:
