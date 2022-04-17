@@ -178,3 +178,7 @@ A green "Verified" badge should appear on your signed commits on the GitHub inte
 - `git commit -S -m "<message>"`: the `-S` flag is responsible for signing a commit where it's used *(see below for signing commits by default)*
 - `git config commit.gpgsign true`: configure Git client to sign commits by default, using your GPG signing key, **for a local repository**
   - See [Signing commits with your GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) for more information.
+
+## Rebase and cherry-picking
+
+A powerful Git function and command, called "rebase", allows developers to merge branches in a different way or to do something called "cherry-picking".
