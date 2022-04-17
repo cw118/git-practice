@@ -186,3 +186,4 @@ Git provides much more functionality than the basic `add`, `commit` and `push`. 
 ### Advanced commands
 
 - `git rebase`:
+  - `git rebase -i`: interactive rebase
