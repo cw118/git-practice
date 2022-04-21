@@ -185,5 +185,5 @@ Git provides much more functionality than the basic `add`, `commit` and `push`. 
 
 ### Advanced commands
 
-- `git rebase`: rebase a branch onto another
-  - `git rebase -i`: interactive rebase
+- `git rebase`: rebase a branch onto another, similar to [`git merge`](#git)
+  - `git rebase -i <commit-hash>`: interactive rebase involving all commits **after** the `<commit-hash>` specified
