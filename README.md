@@ -1,6 +1,8 @@
 # Git Practice
 
-A repo I'm using to train my Git, GitHub, and command line skills, as well as to save some of my notes on these topics.
+[![Issues and pull requests are welcome](https://img.shields.io/badge/-Issues_and_PRs_welcome!-brightgreen)](https://github.com/cw118/git-practice/labels/good%20first%20issue)
+
+A repo for training Git, GitHub, and command line skills, as well as to save some notes on these topics — I don't update this much anymore, but **feel free to create [issues](https://github.com/cw118/git-practice/issues) and [pull requests](https://github.com/cw118/git-practice/pulls) on this repository to practice and contribute/improve notes!**
 
 ## Table of contents
 
